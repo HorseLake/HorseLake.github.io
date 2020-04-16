@@ -1985,15 +1985,21 @@ body {
     .nav-toggle .line {
       background-color: #eee !important;
     }.header {
-        width: 960px;
+        width: 1000px;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 960px;
+        width: 1000px;
         margin: 0 auto;
       }
-    body {
+    @font-face {
+      font-family: 'timesbd.ttf';
+      src: url('/media/fonts/timesbd.ttf.ttf');
+    }
+    * {
+        font-family: 'timesbd.ttf';
+    }body {
       color: #555;
     }
     .next-md-body {
