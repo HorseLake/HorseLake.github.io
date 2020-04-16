@@ -1994,12 +1994,16 @@ body {
         margin: 0 auto;
       }
     @font-face {
-      font-family: 'timesbd.ttf';
-      src: url('/media/fonts/timesbd.ttf.ttf');
+      font-family: 'timesbd';
+      src: url('/media/fonts/timesbd.ttf');
     }
     * {
-        font-family: 'timesbd.ttf';
-    }body {
+        font-family: 'timesbd';
+    }
+    .post-body {
+      font-size: 13px !important
+    }
+    body {
       color: #555;
     }
     .next-md-body {
