@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HorseLake.github.io</id>
     <title>Gridea</title>
-    <updated>2020-04-16T05:03:40.707Z</updated>
+    <updated>2020-04-16T05:18:24.084Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HorseLake.github.io"/>
     <link rel="self" href="https://HorseLake.github.io/atom.xml"/>
@@ -10,6 +10,86 @@
     <logo>https://HorseLake.github.io/images/avatar.png</logo>
     <icon>https://HorseLake.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Luogu P1876 开灯 题解]]></title>
+        <id>https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/</id>
+        <link href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/">
+        </link>
+        <updated>2020-04-16T05:11:33.000Z</updated>
+        <content type="html"><![CDATA[<p>这道题，乍一看，数据量很大，假如直接用For循环的话，不超时才怪！</p>
+<p>于是我列下来了一张表格：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">灯数</th>
+<th style="text-align:center">最后开灯的序号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1 4</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1 4</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1 4</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1 4</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1 4</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1 4 9</td>
+</tr>
+</tbody>
+</table>
+<p>发现都是平方数，所以代码为：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;iomanip&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;string&gt;
+#include&lt;cstdlib&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;ctime&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+int main(){
+	long long n;
+	cin&gt;&gt;n;
+	for(int i=1;i*i&lt;=n;i++){
+		cout&lt;&lt;i*i&lt;&lt;&quot; &quot;;
+	} 
+	return 0;
+}
+</code></pre>
+<p>欢迎采纳！AC代码！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[C++获取系统时间]]></title>
         <id>https://HorseLake.github.io/post/chuo-qu-xi-tong-shi-jian/</id>
