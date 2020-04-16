@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://LakeWorld.github.io</id>
+    <title>Gridea</title>
+    <updated>2020-04-16T00:47:49.852Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://LakeWorld.github.io"/>
+    <link rel="self" href="https://LakeWorld.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://LakeWorld.github.io/images/avatar.png</logo>
+    <icon>https://LakeWorld.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[C++获取系统时间]]></title>
+        <id>https://LakeWorld.github.io/post/chuo-qu-xi-tong-shi-jian/</id>
+        <link href="https://LakeWorld.github.io/post/chuo-qu-xi-tong-shi-jian/">
+        </link>
+        <updated>2020-04-16T00:21:40.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="方案localtime">方案：localtime()</h2>
+<h6 id="优点仅使用c标准库缺点只能精确到秒级">优点：仅使用C标准库；缺点：只能精确到秒级</h6>
+<p>time_t是定义在time.h中的一个类型，表示一个日历时间，也就是从1970年1月1日0时0分0秒到此时的秒数，原型是：</p>
+<pre><code class="language-cpp"> typedef long time_t;        /* time value */
+</code></pre>
+<p>可以看出time_t其实是一个长整型，由于长整型能表示的数值有限，因此它能表示的最迟时间是2038年1月18日19时14分07秒。</p>
+<p>函数time可以获取当前日历时间时间，time的定义：<br>
+time_t time(time_t *)</p>
+<p>time_t (typedef __int64  time_t )只是一个长整型，不符合我们的使用习惯，需要转换成本地时间，就要用到tm结构，time.h中结构tm的原型是：</p>
+<pre><code class="language-cpp">struct tm {  
+        int tm_sec;     /* seconds after the minute - [0,59] */  
+        int tm_min;     /* minutes after the hour - [0,59] */  
+        int tm_hour;    /* hours since midnight - [0,23] */  
+        int tm_mday;    /* day of the month - [1,31] */  
+        int tm_mon;     /* months since January - [0,11] */  
+        int tm_year;    /* years since 1900 */  
+        int tm_wday;    /* days since Sunday - [0,6] */  
+        int tm_yday;    /* days since January 1 - [0,365] */  
+        int tm_isdst;   /* daylight savings time flag */  
+       };  
+</code></pre>
+<p>可以看出，这个机构定义了年、月、日、时、分、秒、星期、当年中的某一天、夏令时。可以用这个结构很方便的显示时间。</p>
+<p>用localtime获取当前系统时间，该函数将一个time_t时间转换成tm结构表示的时间，函数原型：<br>
+struct tm * localtime(const time_t *)<br>
+使用gmtime函数获取格林尼治时间，函数原型：<br>
+struct tm * gmtime(const time_t *)</p>
+<h3 id="输出方式1">输出方式1：</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;  
+#include &lt;time.h&gt;  
+using namespace std;  
+void dsptime(const struct tm *); //输出时间。  
+  
+int main(void)  
+{  
+ time_t nowtime;  
+ nowtime = time(NULL); //获取日历时间  
+ cout &lt;&lt; nowtime &lt;&lt; endl;  //输出nowtime  
+  
+ struct tm *local,*gm;  
+ local=localtime(&amp;nowtime);  //获取当前系统时间  
+ dsptime(local);   
+ gm=gmtime(&amp;nowtime);  //获取格林尼治时间  
+ dsptime(gm);  
+    
+ return 0;  
+}  
+void dsptime(const struct tm * ptm)  
+{  
+ char *pxq[]={&quot;日&quot;,&quot;一&quot;,&quot;二&quot;,&quot;三&quot;,&quot;四&quot;,&quot;五&quot;,&quot;六&quot;};  
+ cout &lt;&lt; ptm-&gt;tm_year+1900 &lt;&lt; &quot;年&quot; &lt;&lt; ptm-&gt;tm_mon+1 &lt;&lt; &quot;月&quot; &lt;&lt; ptm-&gt;tm_mday &lt;&lt; &quot;日 &quot; ;  
+ cout &lt;&lt; ptm-&gt;tm_hour &lt;&lt; &quot;:&quot; &lt;&lt; ptm-&gt;tm_min &lt;&lt; &quot;:&quot; &lt;&lt; ptm-&gt;tm_sec &lt;&lt;&quot; &quot; ;  
+ cout &lt;&lt; &quot; 星期&quot; &lt;&lt;pxq[ptm-&gt;tm_wday] &lt;&lt; &quot; 当年的第&quot; &lt;&lt; ptm-&gt;tm_yday &lt;&lt; &quot;天 &quot; &lt;&lt; endl;  
+}  
+</code></pre>
+<p>输出方式2：</p>
+<pre><code class="language-cpp">#include &lt;time.h&gt;   
+#include &lt;stdio.h&gt;   
+int main( void )   
+{   
+    time_t t = time(0);   
+    char tmp[64];   
+    strftime( tmp, sizeof(tmp), &quot;%Y/%m/%d %X %A 本年第%j天 %z&quot;,localtime(&amp;t) );   
+    puts( tmp );   
+    return 0;   
+}  
+</code></pre>
+<p>C/C++在time.h中提供了一个自定义时间格式的函数strftime，函数原型：<br>
+size_t strftime(char *strDest, size_t maxsize, const char *format, const struct tm *timeptr);<br>
+可使用的格式化字符串：</p>
+<pre><code>%a 星期几的简写 
+%A 星期几的全称 
+%b 月分的简写 
+%B 月份的全称 
+%c 标准的日期的时间串 
+%C 年份的后两位数字 
+%d 十进制表示的每月的第几天 
+%D 月/天/年 
+%e 在两字符域中，十进制表示的每月的第几天 
+%F 年-月-日 
+%g 年份的后两位数字，使用基于周的年 
+%G 年分，使用基于周的年 
+%h 简写的月份名 
+%H 24小时制的小时 
+%I 12小时制的小时
+%j 十进制表示的每年的第几天 
+%m 十进制表示的月份 
+%M 十时制表示的分钟数 
+%n 新行符 
+%p 本地的AM或PM的等价显示 
+%r 12小时的时间 
+%R 显示小时和分钟：hh:mm 
+%S 十进制的秒数 
+%t 水平制表符 
+%T 显示时分秒：hh:mm:ss 
+%u 每周的第几天，星期一为第一天 （值从0到6，星期一为0）
+%U 第年的第几周，把星期日做为第一天（值从0到53）
+%V 每年的第几周，使用基于周的年 
+%w 十进制表示的星期几（值从0到6，星期天为0）
+%W 每年的第几周，把星期一做为第一天（值从0到53） 
+%x 标准的日期串 
+%X 标准的时间串 
+%y 不带世纪的十进制年份（值从0到99）
+%Y 带世纪部分的十进制年份 
+%z，%Z 时区名称，如果不能得到时区名称则返回空字符。
+%% 百分号
+···</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://LakeWorld.github.io/post/hello-gridea/</id>
+        <link href="https://LakeWorld.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
