@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://LakeWorld.github.io</id>
+    <id>https://Lake-World.site</id>
     <title>Gridea</title>
-    <updated>2020-04-16T01:10:36.536Z</updated>
+    <updated>2020-04-16T01:14:30.679Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://LakeWorld.github.io"/>
-    <link rel="self" href="https://LakeWorld.github.io/atom.xml"/>
+    <link rel="alternate" href="https://Lake-World.site"/>
+    <link rel="self" href="https://Lake-World.site/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://LakeWorld.github.io/images/avatar.png</logo>
-    <icon>https://LakeWorld.github.io/favicon.ico</icon>
+    <logo>https://Lake-World.site/images/avatar.png</logo>
+    <icon>https://Lake-World.site/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[C++获取系统时间]]></title>
-        <id>https://LakeWorld.github.io/post/chuo-qu-xi-tong-shi-jian/</id>
-        <link href="https://LakeWorld.github.io/post/chuo-qu-xi-tong-shi-jian/">
+        <id>https://Lake-World.site/post/chuo-qu-xi-tong-shi-jian/</id>
+        <link href="https://Lake-World.site/post/chuo-qu-xi-tong-shi-jian/">
         </link>
         <updated>2020-04-16T00:21:40.000Z</updated>
         <content type="html"><![CDATA[<h2 id="方案localtime">方案：localtime()</h2>
@@ -126,8 +126,8 @@ size_t strftime(char *strDest, size_t maxsize, const char *format, const struct 
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://LakeWorld.github.io/post/hello-gridea/</id>
-        <link href="https://LakeWorld.github.io/post/hello-gridea/">
+        <id>https://Lake-World.site/post/hello-gridea/</id>
+        <link href="https://Lake-World.site/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
