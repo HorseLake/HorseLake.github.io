@@ -1994,11 +1994,11 @@ body {
         margin: 0 auto;
       }
     @font-face {
-      font-family: 'timesbd';
-      src: url('/media/fonts/timesbd.ttf');
+      font-family: 'comic';
+      src: url('/media/fonts/comic.ttf');
     }
     * {
-        font-family: 'timesbd';
+        font-family: 'comic';
     }
     .post-body {
       font-size: 13px !important
