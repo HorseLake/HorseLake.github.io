@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="任何伟大的目标，都有一个微不足道的开始">
 <meta name="theme-color" content="#000">
-<title>C++获取系统时间 | 胡瑞涵官方网站</title>
+<title>Luogu P1031 均分纸牌 题解 | 胡瑞涵官方网站</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1587121384352">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="C++获取系统时间" />
-    <meta name="keywords" content="C++ Code" />
+    <meta name="description" content="Luogu P1031 均分纸牌 题解" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -167,17 +167,9 @@
               <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
 <ul>
-<li><a href="#%E6%96%B9%E6%A1%88localtime">方案：localtime()</a><br>
-*<br>
-*<br>
-*<br>
-* <a href="#%E4%BC%98%E7%82%B9%E4%BB%85%E4%BD%BF%E7%94%A8c%E6%A0%87%E5%87%86%E5%BA%93%E7%BC%BA%E7%82%B9%E5%8F%AA%E8%83%BD%E7%B2%BE%E7%A1%AE%E5%88%B0%E7%A7%92%E7%BA%A7">优点：仅使用C标准库；缺点：只能精确到秒级</a>
-<ul>
-<li><a href="#%E8%BE%93%E5%87%BA%E6%96%B9%E5%BC%8F1">输出方式1：</a></li>
-</ul>
-</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-2">题解</a></li>
 </ul>
 </li>
 </ul>
@@ -444,8 +436,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://HorseLake.github.io/post/chuo-qu-xi-tong-shi-jian/">
-      C++获取系统时间
+    <a class="post-title-link" href="https://HorseLake.github.io/post/luogu-p1031-jun-fen-zhi-pai-ti-jie/">
+      Luogu P1031 均分纸牌 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -453,142 +445,58 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-04-16</span>
+      <span>2020-04-17</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://HorseLake.github.io/tag/mazlWncxg/">
-              <span>C++ Code</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1036<span class="pc-show">字数</span></span>
+      <span>149<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <h2 id="方案localtime">方案：localtime()</h2>
-<h6 id="优点仅使用c标准库缺点只能精确到秒级">优点：仅使用C标准库；缺点：只能精确到秒级</h6>
-<p>time_t是定义在time.h中的一个类型，表示一个日历时间，也就是从1970年1月1日0时0分0秒到此时的秒数，原型是：</p>
-<pre><code class="language-cpp"> typedef long time_t;        /* time value */
+                <h1 id="题解">题解</h1>
+<p><strong>废话不多说，直接上题解</strong></p>
+<h2 id="题解-2">题解</h2>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;iomanip&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;string&gt;
+#include&lt;cstdlib&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;ctime&gt;
+#include&lt;algorithm&gt;
+using namespace std; 
+int a[10010],n,sum=0,x=0,to1=0;
+int main(){
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++){
+       cin&gt;&gt;a[i];
+       sum+=a[i];
+    }
+    x=sum/n;
+    for(int i=1;i&lt;=n;i++) a[i]=a[i]-x;
+    for(int i=1;i&lt;=n;i++){
+        if(a[i]==0) continue;
+        a[i+1]=a[i]+a[i+1];
+        to1++;
+    }
+    cout&lt;&lt;to1;
+    return 0;
+}
 </code></pre>
-<p>可以看出time_t其实是一个长整型，由于长整型能表示的数值有限，因此它能表示的最迟时间是2038年1月18日19时14分07秒。</p>
-<p>函数time可以获取当前日历时间时间，time的定义：<br>
-time_t time(time_t *)</p>
-<p>time_t (typedef __int64  time_t )只是一个长整型，不符合我们的使用习惯，需要转换成本地时间，就要用到tm结构，time.h中结构tm的原型是：</p>
-<pre><code class="language-cpp">struct tm {  
-        int tm_sec;     /* seconds after the minute - [0,59] */  
-        int tm_min;     /* minutes after the hour - [0,59] */  
-        int tm_hour;    /* hours since midnight - [0,23] */  
-        int tm_mday;    /* day of the month - [1,31] */  
-        int tm_mon;     /* months since January - [0,11] */  
-        int tm_year;    /* years since 1900 */  
-        int tm_wday;    /* days since Sunday - [0,6] */  
-        int tm_yday;    /* days since January 1 - [0,365] */  
-        int tm_isdst;   /* daylight savings time flag */  
-       };  
-</code></pre>
-<p>可以看出，这个机构定义了年、月、日、时、分、秒、星期、当年中的某一天、夏令时。可以用这个结构很方便的显示时间。</p>
-<p>用localtime获取当前系统时间，该函数将一个time_t时间转换成tm结构表示的时间，函数原型：<br>
-struct tm * localtime(const time_t *)<br>
-使用gmtime函数获取格林尼治时间，函数原型：<br>
-struct tm * gmtime(const time_t *)</p>
-<h3 id="输出方式1">输出方式1：</h3>
-<pre><code class="language-cpp">#include &lt;iostream&gt;  
-#include &lt;time.h&gt;  
-using namespace std;  
-void dsptime(const struct tm *); //输出时间。  
-  
-int main(void)  
-{  
- time_t nowtime;  
- nowtime = time(NULL); //获取日历时间  
- cout &lt;&lt; nowtime &lt;&lt; endl;  //输出nowtime  
-  
- struct tm *local,*gm;  
- local=localtime(&amp;nowtime);  //获取当前系统时间  
- dsptime(local);   
- gm=gmtime(&amp;nowtime);  //获取格林尼治时间  
- dsptime(gm);  
-    
- return 0;  
-}  
-void dsptime(const struct tm * ptm)  
-{  
- char *pxq[]={&quot;日&quot;,&quot;一&quot;,&quot;二&quot;,&quot;三&quot;,&quot;四&quot;,&quot;五&quot;,&quot;六&quot;};  
- cout &lt;&lt; ptm-&gt;tm_year+1900 &lt;&lt; &quot;年&quot; &lt;&lt; ptm-&gt;tm_mon+1 &lt;&lt; &quot;月&quot; &lt;&lt; ptm-&gt;tm_mday &lt;&lt; &quot;日 &quot; ;  
- cout &lt;&lt; ptm-&gt;tm_hour &lt;&lt; &quot;:&quot; &lt;&lt; ptm-&gt;tm_min &lt;&lt; &quot;:&quot; &lt;&lt; ptm-&gt;tm_sec &lt;&lt;&quot; &quot; ;  
- cout &lt;&lt; &quot; 星期&quot; &lt;&lt;pxq[ptm-&gt;tm_wday] &lt;&lt; &quot; 当年的第&quot; &lt;&lt; ptm-&gt;tm_yday &lt;&lt; &quot;天 &quot; &lt;&lt; endl;  
-}  
-</code></pre>
-<p>输出方式2：</p>
-<pre><code class="language-cpp">#include &lt;time.h&gt;   
-#include &lt;stdio.h&gt;   
-int main( void )   
-{   
-    time_t t = time(0);   
-    char tmp[64];   
-    strftime( tmp, sizeof(tmp), &quot;%Y/%m/%d %X %A 本年第%j天 %z&quot;,localtime(&amp;t) );   
-    puts( tmp );   
-    return 0;   
-}  
-</code></pre>
-<p>C/C++在time.h中提供了一个自定义时间格式的函数strftime，函数原型：<br>
-size_t strftime(char *strDest, size_t maxsize, const char *format, const struct tm *timeptr);<br>
-可使用的格式化字符串：</p>
-<pre><code>%a 星期几的简写 
-%A 星期几的全称 
-%b 月分的简写 
-%B 月份的全称 
-%c 标准的日期的时间串 
-%C 年份的后两位数字 
-%d 十进制表示的每月的第几天 
-%D 月/天/年 
-%e 在两字符域中，十进制表示的每月的第几天 
-%F 年-月-日 
-%g 年份的后两位数字，使用基于周的年 
-%G 年分，使用基于周的年 
-%h 简写的月份名 
-%H 24小时制的小时 
-%I 12小时制的小时
-%j 十进制表示的每年的第几天 
-%m 十进制表示的月份 
-%M 十时制表示的分钟数 
-%n 新行符 
-%p 本地的AM或PM的等价显示 
-%r 12小时的时间 
-%R 显示小时和分钟：hh:mm 
-%S 十进制的秒数 
-%t 水平制表符 
-%T 显示时分秒：hh:mm:ss 
-%u 每周的第几天，星期一为第一天 （值从0到6，星期一为0）
-%U 第年的第几周，把星期日做为第一天（值从0到53）
-%V 每年的第几周，使用基于周的年 
-%w 十进制表示的星期几（值从0到6，星期天为0）
-%W 每年的第几周，把星期一做为第一天（值从0到53） 
-%x 标准的日期串 
-%X 标准的时间串 
-%y 不带世纪的十进制年份（值从0到99）
-%Y 带世纪部分的十进制年份 
-%z，%Z 时区名称，如果不能得到时区名称则返回空字符。
-%% 百分号
-···</code></pre>
+<p>原网站：<a href="https://www.luogu.com.cn/problem/P1031"><strong>P1031 均分纸牌</strong></a></p>
 
               </div>
               <div class="post-footer">
@@ -599,7 +507,7 @@ size_t strftime(char *strDest, size_t maxsize, const char *format, const struct 
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://HorseLake.github.io/post/chuo-qu-xi-tong-shi-jian/" title="C++获取系统时间">C++获取系统时间</a>
+      <a href="https://HorseLake.github.io/post/luogu-p1031-jun-fen-zhi-pai-ti-jie/" title="Luogu P1031 均分纸牌 题解">Luogu P1031 均分纸牌 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -608,18 +516,16 @@ size_t strftime(char *strDest, size_t maxsize, const char *format, const struct 
   </ul>
   <div class="tags">
     
-      <a href="https://HorseLake.github.io/tag/mazlWncxg/"># C++ Code</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Luogu P1876 开灯 题解" href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/">Luogu P1876 开灯 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Luogu P1876 开灯 题解" href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/">上一篇</a>
-      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Luogu P1876 开灯 题解" href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/">Luogu P1876 开灯 题解</a>
+        <a class="nav-mobile-next" title="Luogu P1876 开灯 题解" href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
