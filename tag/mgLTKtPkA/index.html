@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8"/>
+      <meta charset="UTF-8"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="任何伟大的目标，都有一个微不足道的开始">
 <meta name="theme-color" content="#000">
-<title>Luogu P1876 开灯 题解 | 胡瑞涵官方网站</title>
+<title>胡瑞涵官方网站</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1587460367596">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,6 @@
 
 
 
-    <meta name="description" content="Luogu P1876 开灯 题解" />
-    <meta name="keywords" content="题解" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -152,248 +150,128 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout gemini ">
+      <div class="section-layout  gemini">
         <div class="section-layout-wrapper">
-          
-
-<div class="sidebar">
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-          <div class="section-box box-shadow-wrapper">
-            <div class="section bg-color post post-page">
-              <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/">
-      Luogu P1876 开灯 题解
-    </a>
-  </h1>
-  <div class="post-meta">
+          <div id="sidebarMeta" class="sidebar">
     
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-04-16</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">胡瑞涵官方网站</p>
+    <p class="site-description right-motion">任何伟大的目标，都有一个微不足道的开始</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://HorseLake.github.io/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
         
           
-            <a href="https://HorseLake.github.io/tag/EK9SdfY7I/">
-              <span>题解</span>
+            <a href="https://github.com/HorseLake">
+              <i class="fa fa-github-alt" title="Gitbub"></i>
             </a>
           
         
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>170<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-              <div class="post-body next-md-body" id="post_body">
-                <p>这道题，乍一看，数据量很大，假如直接用For循环的话，不超时才怪！</p>
-<p>于是我列下来了一张表格：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">灯数</th>
-<th style="text-align:center">最后开灯的序号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1 4</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1 4</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">1 4</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">1 4</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">1 4</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">1 4 9</td>
-</tr>
-</tbody>
-</table>
-<p>发现都是平方数，所以代码为：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;iomanip&gt;
-#include&lt;cstring&gt;
-#include&lt;cmath&gt;
-#include&lt;string&gt;
-#include&lt;cstdlib&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;ctime&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-int main(){
-	long long n;
-	cin&gt;&gt;n;
-	for(int i=1;i*i&lt;=n;i++){
-		cout&lt;&lt;i*i&lt;&lt;&quot; &quot;;
-	} 
-	return 0;
-}
-</code></pre>
-<p>欢迎采纳！AC代码！</p>
-
-              </div>
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      胡瑞涵官方网站
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://HorseLake.github.io/post/luogu-p1876-kai-deng-ti-jie/" title="Luogu P1876 开灯 题解">Luogu P1876 开灯 题解</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-      <a href="https://HorseLake.github.io/tag/EK9SdfY7I/"># 题解</a>
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
-      
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Luogu P1031 均分纸牌 题解" href="https://HorseLake.github.io/post/luogu-p1031-jun-fen-zhi-pai-ti-jie/">Luogu P1031 均分纸牌 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Luogu P1031 均分纸牌 题解" href="https://HorseLake.github.io/post/luogu-p1031-jun-fen-zhi-pai-ti-jie/">上一篇</a>
-      
+        
+      </div>
     </div>
-    <div class="nav-next">
+  
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+            <div class="section-box tag-line">
+              <div class="box-shadow-wrapper">
+                <div class="bg-color">
+                  <section class="section posts-expand">
+                    <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          Win10
+          <small>标签</small>
+        </h2>
+      </div>
       
-        <a class="nav-pc-next" title="C++获取系统时间" href="https://HorseLake.github.io/post/chuo-qu-xi-tong-shi-jian/">C++获取系统时间</a>
-        <a class="nav-mobile-next" title="C++获取系统时间" href="https://HorseLake.github.io/post/chuo-qu-xi-tong-shi-jian/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
+        
+          
+            <a href="https://HorseLake.github.io/post/windows-10-chang-yong-kuai-jie-jian-ni-zhi-de-yong-you/">
+              <div class="motion-warpper">
+                <div class="tag-post-node">
+                  <h1>
+                    04-21
+                    <small>Windows 10常用快捷键，你值得拥有</small>
+                  </h1>
+                </div>  
+              </div>
+            </a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
       
     </div>
   </div>
 </div>
-              
-  
-
-            </div>
+                  </section>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -563,36 +441,6 @@ int main(){
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
-</script>
-      <div class="light-box" id="light_box"></div>
-<script>
-  let imgs = document.querySelectorAll('.post-body img');
-  let lightBox = document.querySelector('#light_box');
-  lightBox.addEventListener('mousedown', (e) => {
-    e.preventDefault()
-  })
-  lightBox.addEventListener('mousewheel', (e) => {
-    e.preventDefault()
-  })
-  let width = window.innerWidth * 0.8;
-  lightBox.onclick= () => {
-    let img = lightBox.querySelector('img');
-    lightBox.style = '';
-    img && img.remove();
-  }
-  imgs.forEach(item => {
-    item.onclick = function(e) {
-      let lightImg = document.createElement('img');
-      lightImg.src = this.src;
-      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
-      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
-      lightImg.onclick = function() {
-        lightBox.style = '';
-        this.remove();
-      }
-      lightBox.append(lightImg);
-    }
-  })
 </script>
     </div>
   </body>
