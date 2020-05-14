@@ -2115,6 +2115,8 @@ blockquote {
     }
     .mist .site-title i {
       background: #FFFFFF7f;
+    }.box-scale > #landlord {
+      transform: scale(1);
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }
