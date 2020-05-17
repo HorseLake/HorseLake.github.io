@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HorseLake.github.io</id>
     <title>胡瑞涵官方网站</title>
-    <updated>2020-05-14T13:02:08.782Z</updated>
+    <updated>2020-05-17T11:58:41.396Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HorseLake.github.io"/>
     <link rel="self" href="https://HorseLake.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://HorseLake.github.io/images/avatar.png</logo>
     <icon>https://HorseLake.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 胡瑞涵官方网站</rights>
+    <entry>
+        <title type="html"><![CDATA[同学搞笑语录]]></title>
+        <id>https://HorseLake.github.io/post/Student funny/</id>
+        <link href="https://HorseLake.github.io/post/Student funny/">
+        </link>
+        <updated>2020-05-15T12:40:13.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1">#1</h2>
+<p>语文老师：“送鲍浩然之浙东”这个“之”是什么意思？<br>
+同学们：到、去的意思。<br>
+语文老师：嗯，“之浙东”是什么意思啊？<br>
+陈*浩：送鲍浩然上西天。😄</p>
+<h2 id="2">#2</h2>
+<p>语文老师：好了好了，快放学了，布置下作业。<br>
+同学们：什么作业啊？<br>
+语文老师：抄写古诗原文，译文，主题思想和带点字意思。<br>
+陈*浩：老师你**的，操😱！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[用户举报专区有趣语录册]]></title>
         <id>https://HorseLake.github.io/post/yong-hu-ju-bao-zhuan-qu-you-qu-yu-lu-ce/</id>
